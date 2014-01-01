@@ -1,0 +1,8 @@
+{
+  "locals": {
+    "title": "Daniel Berndt Online"
+  },
+  "ignore": [
+    "assets/**/*"
+  ]
+}
