@@ -1,0 +1,71 @@
+
+$normal-size: 18px;
+$normal-line-height: 1.45;
+
+$big-size:27px;
+$massive-size:40.5px;
+
+$_rythm: $normal-size * $normal-line-height;
+
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/DXI1ORHCpsQm3Vp6mXoaTaRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/k3k702ZOKiLJc3WVjuplzKRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: $normal-line-height;
+  font-weight: 300;
+  color:$font-black;
+}
+
+h1 {
+  $line-height:1.2;
+  font-size: $massive-size;
+  line-height: $line-height;
+  font-weight: 300;
+  margin:0;
+}
+
+h2 {
+  $line-height:1.2;
+  font-size: $massive-size;
+  line-height: $line-height;
+  font-weight: 300;
+  margin-bottom: $_rythm * 3 - $massive-size*$line-height
+}
+
+h3 {
+  font-weight: 300;
+  font-size: $big-size;
+  margin-bottom: $_rythm * 2 - $big-size*$normal-line-height
+}
+
+p {
+  font-size: $normal-size;
+  margin-bottom: $_rythm;
+}
+
+a {
+  color:$brand;
+  @include transition(color 0.2s);
+
+  &:hover {
+    color: lighten($brand, 10%);
+  }
+}

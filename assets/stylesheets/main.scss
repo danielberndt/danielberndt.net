@@ -1,8 +1,9 @@
-body {
-  font-family: Helvetica, sans-serif;
-  
-  h1 {
-    border-bottom:2px solid purple;
-    
-  }
-}
+@import "compass/css3/box-sizing";
+@import "compass/css3/transition";
+
+@import "vendor/_normalize";
+
+@import "_variables";
+
+@import "_typo";
+@import "_layout";

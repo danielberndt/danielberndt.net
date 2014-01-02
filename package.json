@@ -11,7 +11,8 @@
     "grunt-wintersmith": "0.0.2",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-hashres": "~0.3.4",
-    "grunt-rsync": "~0.2.1"
+    "grunt-rsync": "~0.2.1",
+    "grunt-contrib-imagemin": "~0.4.0"
   },
   "repository": {
     "type": "git",

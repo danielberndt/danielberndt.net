@@ -5,5 +5,66 @@ html
     title= locals.title
     link(rel='stylesheet', href='/css/main.css')
   body
-    h1= page.title
-    != page.html
+    header.main-header
+      .logo
+        img(src="/images/me.png")
+      h1 Daniel Berndt
+      nav
+        ul.main-nav
+          li
+            a(href="#about") about
+          li
+            a(href="#projects") projects
+          li
+            a(href="#contact") contact
+
+    .content
+      section.about#about
+        .content-box
+          h2 About me
+          p Hi, I'm Daniel – Webdeveloper and Machine Learning Enthusiast.
+
+      section.projects#projects
+        .content-box
+          h2 Projects
+          p a selection of recent projects
+          ul.project-list
+            li.project-item
+              h3 patience.io
+              .project-box
+                img(src="/images/project_patience.jpg")
+                p this is my current gig. Here I'm participating at creating a white-label education platform to offer a first-class personalised learning environment. For me this is a great combination to combine my passion for modern, user-centric web development and top-notch machine learning algorithms.
+                p
+                  a(href="http://patience.io", target="_blank") link to project
+            li.project-item
+              h3 piq
+              .project-box
+                img(src="/images/project_piq.jpg")
+                p piq started off as a simple page with a simple flash drawing app. During the course of time it developed into a thriving community of pixel art fans from all over the world who enjoy using the app.
+                p
+                  a(href="http://piq.codeus.net", target="_blank") link to project
+            li.project-item
+              h3 HellDefence
+              .project-box
+                img(src="/images/project_helldefence.jpg")
+                p HellDefence was developed in a 4 week period as a side project (and as my first more serious attempt of creating a game). It takes elements from tower defence and real-time strategy games, and lets the user play through 30 levels. It contains an extensive upgrading system as well as achievements and a survival mode. Since it was released in August 2011 it got about 100 downloads a day and an average rating of >4.5 stars.
+                p
+                  a(href="https://play.google.com/store/apps/details?id=net.codeus.android.helldefence", target="_blank") link to project
+
+      section.contact#contact
+        .content-box
+          h2#contact Contact me
+          p via <a href="mailto:daniel.berndt@gmail.com">mail</a>
+          p via <a href="https://twitter.com/d40b">twitter</a>
+
+    script.
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-26986629-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+

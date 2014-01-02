@@ -3,6 +3,6 @@
     "title": "Daniel Berndt Online"
   },
   "ignore": [
-    "assets/**/*"
+    "assets/**/*", "**/.DS_Store"
   ]
 }

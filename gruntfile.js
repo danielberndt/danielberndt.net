@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 
     clean: {
       build: [
-        'build'
+        'build', 'contents/css/main.css'
       ]
     },
 
@@ -63,6 +63,30 @@ module.exports = function(grunt) {
       }
     },
 
+    imagemin: {
+      dist: {
+        options: {
+          optimizationLevel: 3
+        },
+        files: [
+          {
+            expand: true,
+            cwd: 'build/',
+            src: ['**/*.jpg'],
+            dest: 'build/',
+            ext: '.jpg'
+          },
+          {
+            expand: true,
+            cwd: 'build/',
+            src: ['**/*.png'],
+            dest: 'build/',
+            ext: '.png'
+          }
+        ]
+      }
+    },
+
     wintersmith: {
       production: {
         options: {
@@ -97,6 +121,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-wintersmith');
   grunt.loadNpmTasks('grunt-hashres');
   grunt.loadNpmTasks('grunt-rsync');
@@ -109,6 +134,7 @@ module.exports = function(grunt) {
     'clean:build',
     'compass:dist',
     'wintersmith:production',
+    'imagemin:dist',
     'hashres:images',
     'hashres:css'
   ]);
