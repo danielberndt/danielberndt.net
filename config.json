@@ -1,8 +1,0 @@
-{
-  "locals": {
-    "title": "Daniel Berndt Online"
-  },
-  "ignore": [
-    "assets/**/*", "**/.DS_Store"
-  ]
-}
