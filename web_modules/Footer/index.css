@@ -1,8 +1,9 @@
 .footer {
-  margin-top: 1rem;
+  margin: 1rem 0 2rem;
   padding: 1rem;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .findMeOn {
@@ -15,9 +16,14 @@
 .icon {
   fill: #63b2bd;
   transition: fill 0.15s ease-out;
-  margin-left: 0.5rem;
+  margin-left: 1rem;
 
   &:hover {
     fill: color(#63b2bd l(-10%));
   }
+}
+
+.icon svg {
+  width: 2rem;
+  height: 2rem;
 }
