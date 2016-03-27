@@ -51,6 +51,6 @@ In the past I've worked with angular 1, play framework 2, scala, java, android, 
 
 - **Codeus** <span class="project-date">2010 - 2011</span>
 
-  After finishing my Master's two friends and I founded codeus - a consultancy aimed to create intelligent software to scottish businesses.
+  After finishing my Master's two friends and I founded codeus - a consultancy aimed to create intelligent software to Scottish businesses.
 
-  In our time inbetween projects, we had time to work on fun stuff like [piq](http://piq.codeus.net) - a pixel art maker and community, and [HellDefence](https://play.google.com/store/apps/details?id=net.codeus.android.helldefence) a tower defence game for android.
+  In our time in between projects, we had time to work on fun stuff like [piq](http://piq.codeus.net) - a pixel art maker and community, and [HellDefence](https://play.google.com/store/apps/details?id=net.codeus.android.helldefence) a tower defence game for android.
