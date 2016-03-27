@@ -45,7 +45,7 @@ export default ({config, pkg}) => ({
       {
         test: /\.(html|ico|jpe?g|png|gif)$/,
         loader: "file-loader" +
-          "?name=[name]-[hash:base64:5].[ext]&context=" +
+          "?name=[name]-[md5:hash:base62:8].[ext]&context=" +
           path.join(config.cwd, config.source)
       },
       {
@@ -63,7 +63,7 @@ export default ({config, pkg}) => ({
   ],
 
   plugins: [
-    new ExtractTextPlugin("[name].[hash].css", {disable: config.dev}),
+    new ExtractTextPlugin("[name]-[hash:8].css", {disable: config.dev}),
     new webpack.DefinePlugin({"process.env": {
       NODE_ENV: JSON.stringify(
         config.production ? "production" : process.env.NODE_ENV
@@ -85,7 +85,7 @@ export default ({config, pkg}) => ({
   output: {
     path: path.join(config.cwd, config.destination),
     publicPath: config.baseUrl.pathname,
-    filename: "[name].[hash].js"
+    filename: "[name]-[hash:8].js"
   },
 
   resolve: {
