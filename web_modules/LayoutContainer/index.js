@@ -3,6 +3,7 @@ import Helmet from "react-helmet";
 
 import Header from "../Header";
 import Footer from "../Footer";
+import GoogleAnalyticsTracker from "../GoogleAnalyticsTracker/index";
 
 import styles from "./index.css";
 
@@ -20,19 +21,21 @@ export default class Layout extends Component {
     const {info} = this.context.metadata;
 
     return (
-      <div className={ styles.layout }>
-        <Helmet
-          meta={ [
-            {property: "og:site_name", content: info.name},
-            {name: "twitter:site", content: `@${info.twitterHandle}`}
-          ] }
-        />
-        <Header />
-        <div className={ styles.content }>
-          { this.props.children }
+      <GoogleAnalyticsTracker params={this.props.params}>
+        <div className={ styles.layout }>
+          <Helmet
+            meta={ [
+              {property: "og:site_name", content: info.name},
+              {name: "twitter:site", content: `@${info.twitterHandle}`}
+            ] }
+          />
+          <Header />
+          <div className={ styles.content }>
+            { this.props.children }
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
+      </GoogleAnalyticsTracker>
     );
   }
 }
