@@ -1,0 +1,21 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "rules": {
+    "quotes": [2, "double"],
+    "id-length": 0,
+    "comma-dangle": [2, "never"],
+    "object-curly-spacing": [2, "never"],
+    "space-before-function-paren": [2, "never"],
+    "no-param-reassign": [2, {"props": false}],
+    "max-len": 0, // TODO: enable,
+    "no-else-return": 0,
+    "no-cond-assign": [2, "except-parens"],
+    "no-console": 0,
+    "no-alert": 0,
+    "no-nested-ternary": 0,
+    "react/no-multi-comp": 0,
+    "react/prop-types": 0,
+    "react/prefer-stateless-function": 0
+  }
+}

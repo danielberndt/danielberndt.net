@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather:700|Source+Sans+Pro:400");
+
+/* GLOBAL STYLES, OMG ! */
+body {
+  margin: 0;
+
+  font-size: 1rem;
+  line-height: 1.5;
+
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  color: #112528;
+  background: #f7f7f7;
+  box-sizing: border-box;
+}
+
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+
+/* local styles */
+
+@custom-selector :--headings h1, h2, h3, h4, h5, h6;
+
+/* for .statinamic-HeadingAnchor */
+:--headings {
+  position: relative;
+}
+
+:global .statinamic-HeadingAnchor {
+  /* TODO: find a way to get completely rid of it! */
+  display: none !important;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Merriweather, serif;
+  font-weight: 700;
+  color: #2a5e65;
+  line-height: 1.2;
+}
+
+.layout {
+  /* placeholder */
+}
+
+.content {
+  max-width: 60rem;
+  margin: auto;
+  padding: 2rem 0.75rem 1rem;
+}

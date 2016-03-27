@@ -1,0 +1,25 @@
+.flow a {
+  display: inline-block;
+  border-bottom: 2px solid #63b2bd;
+  line-height: 1.2;
+  text-decoration: none;
+  background-color: transparent;
+  transition: background-color 0.15s ease-out;
+  color: inherit;
+
+  &:hover {
+    background-color: color(#63b2bd l(+30%));
+  }
+}
+
+.flow h2 {
+  border-bottom: 1px solid color(#63b2bd l(+30%));
+  padding-bottom: 0.25rem;
+  margin-top: 2rem;
+}
+
+:global .project-date {
+  display: inline-block;
+  margin-left: 1rem;
+  color: #999;
+}
