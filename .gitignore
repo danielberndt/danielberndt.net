@@ -1,6 +1,8 @@
-.*
-!.gitignore
+# Project dependencies
+.cache
 node_modules
-build
-contents/css
-*.sublime-*
+yarn-error.log
+
+# Build directory
+/public
+.DS_Store
