@@ -43,6 +43,7 @@ const Layout = ({children, title, lang}) => (
         site {
           siteMetadata {
             title
+            content
           }
         }
       }

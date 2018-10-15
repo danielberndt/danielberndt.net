@@ -3,6 +3,7 @@ require("dotenv").config();
 module.exports = {
   siteMetadata: {
     title: "Daniel Berndt - Web Developer",
+    content: "This is the portfolio page of Daniel Berndt. Web Developer based in Berlin.",
   },
   plugins: [
     "gatsby-plugin-react-helmet",

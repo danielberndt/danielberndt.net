@@ -22,8 +22,8 @@ const IndexPage = () => (
     <Hero>Hello!</Hero>
     <div css={{marginBottom: "3rem"}}>
       <BodyText>
-        I'm Daniel. <b>Web developer</b> with a background in <b>computer linguistics</b> and{" "}
-        <b>machine learning</b>.
+        I'm Daniel. Berlin based <b>Web developer</b> with a background in{" "}
+        <b>computer linguistics</b> and <b>machine learning</b>.
       </BodyText>
       <BodyText>
         These days I'm working on helping game devs (and others) to add some delight to their
