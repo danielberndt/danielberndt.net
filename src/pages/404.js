@@ -1,10 +1,14 @@
 import React from "react";
 import Layout from "../components/layout";
+import {Hero, H3, BodyText, Link} from "../style/typo";
 
 const NotFoundPage = () => (
   <Layout>
-    <h1>404 - Not Found</h1>
-    <p>You just hit a url that doesn&#39;t exist.</p>
+    <Hero>D</Hero>
+    <H3 css={{marginBottom: "3rem"}}>No such page.</H3>
+    <BodyText>
+      Go to <Link href="/">Homepage</Link>.
+    </BodyText>
   </Layout>
 );
 

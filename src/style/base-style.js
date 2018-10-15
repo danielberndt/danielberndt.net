@@ -1,6 +1,5 @@
 import "normalize.css/normalize.css";
 import {injectGlobal} from "emotion";
-import colors from "./colors";
 
 injectGlobal`
 html {
@@ -10,7 +9,7 @@ html {
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 0.01rem;
 }
 
@@ -18,9 +17,9 @@ html[lang] {
   margin-top: 0 !important;
 }
 
-@media screen and (min-width: 50em) {
+@media screen and (min-width: 30em) {
   html {
-    font-size: calc(0.75em + 0.25vw);
+    font-size: calc(0.88em + 0.4vw);
   }
 }
 
@@ -41,12 +40,15 @@ body {
   margin: 0;
   background-size: cover;
   background-position: 50% 50%;
-  background-color: ${colors.brandDark};
-  color: #fff;
   line-height: 1.4;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}`;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol {
+  margin: 0
+}
+`;
