@@ -1,6 +1,7 @@
 # Project dependencies
 .env
 .cache
+.awspublish-*
 node_modules
 yarn-error.log
 

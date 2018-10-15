@@ -22,13 +22,17 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.js'",
+    "deploy": "gulp deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@danielberndt/exec": "^1.1.0",
     "@danielberndt/gatsby-mdx": "^0.2.5",
     "@mdx-js/mdx": "^0.15.5",
     "@mdx-js/tag": "^0.15.0",
     "babel-eslint": "^9.0.0",
+    "concurrent-transform": "^1.0.0",
+    "del": "^3.0.0",
     "dotenv": "^6.1.0",
     "emotion-server": "^9.2.12",
     "eslint": "^5.0.0",
@@ -46,6 +50,10 @@
     "gatsby-remark-images": "^2.0.4",
     "gatsby-source-filesystem": "^2.0.3",
     "gatsby-transformer-sharp": "^2.1.3",
+    "gulp": "^3.9.1",
+    "gulp-awspublish": "^3.4.0",
+    "gulp-awspublish-router": "^0.1.5",
+    "gulp-cloudfront-invalidate-aws-publish": "^1.0.0",
     "prettier": "^1.14.3"
   },
   "repository": {
