@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports = {
   siteMetadata: {
     title: "Daniel Berndt - Web Developer",
@@ -48,6 +50,15 @@ module.exports = {
               labelFormat: "[filename]--[local]",
             }
           : {hoist: true},
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GA_ID,
+        head: false, // Puts tracking script in the head instead of the body
+        anonymize: true,
+        respectDNT: true,
+      },
     },
   ],
 };
