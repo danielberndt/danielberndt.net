@@ -30,6 +30,13 @@ const ScrollContent = styled("div")({
   right: 0,
   overflow: "auto",
   padding: "3rem 3rem 6rem",
+  "::-webkit-scrollbar": {
+    width: "0.4rem",
+    height: "0.4rem",
+  },
+  "::-webkit-scrollbar-thumb": {
+    background: "linear-gradient(181deg, #f5f 0%, #5ff 100%)",
+  },
   [breakPoints.mini]: {
     paddingLeft: "1rem",
     paddingRight: "1rem",

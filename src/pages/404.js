@@ -4,7 +4,7 @@ import {Hero, H3, BodyText, Link} from "../style/typo";
 
 const NotFoundPage = () => (
   <Layout>
-    <Hero>D</Hero>
+    <Hero>404</Hero>
     <H3 css={{marginBottom: "3rem"}}>No such page.</H3>
     <BodyText>
       Go to <Link href="/">Homepage</Link>.

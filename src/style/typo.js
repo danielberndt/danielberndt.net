@@ -47,6 +47,7 @@ const Border = styled("div")({
   display: "inline-block",
   background: "linear-gradient(121deg, #f0f 0%, #0ff 100%)",
   padding: "0.3rem",
+  fontSize: 1,
 });
 
 const InnerH2 = styled("span")({
@@ -61,6 +62,9 @@ const InnerH2 = styled("span")({
   fontWeight: 300,
   letterSpacing: "0.2em",
   wordBreak: "break-word",
+  [breakPoints.mini]: {
+    fontSize: ["1.5rem", "calc(0.2rem + 5vw)"],
+  },
 });
 
 export const H2 = ({children, ...rest}) => (

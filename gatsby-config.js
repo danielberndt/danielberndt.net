@@ -11,12 +11,8 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: "danielberndt.net",
-        short_name: "Daniel",
-        start_url: "/",
         background_color: "#707",
         theme_color: "#707",
-        display: "minimal-ui",
-        icon: "./src/images/icon.png",
       },
     },
     "gatsby-plugin-offline",
