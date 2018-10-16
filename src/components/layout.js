@@ -5,13 +5,33 @@ import styled from "react-emotion";
 import "../style/base-style";
 import {breakPoints} from "../style/breakpoints";
 
-const Outer = styled("div")({
+const OuterComp = styled("div")({
   height: "100vh",
   padding: "1rem",
   display: "flex",
   flexDirection: "column",
-  background: "linear-gradient(121deg, #f0f 0%, #0ff 100%)",
+  background: "linear-gradient(120deg, #f0f 0%, #0ff 100%)",
 });
+
+class Outer extends React.Component {
+  currentDeg = 120;
+
+  handleRef = node => {
+    if (this.timeoutId) clearTimeout(this.timeoutId);
+    if (node) {
+      const doIt = () => {
+        this.currentDeg = (this.currentDeg + 1) % 360;
+        node.style.background = `linear-gradient(${this.currentDeg}deg, #f0f 0%, #0ff 100%)`;
+        this.timeoutId = setTimeout(doIt, 200);
+      };
+      this.timeoutId = setTimeout(doIt, 200);
+    }
+  };
+
+  render() {
+    return <OuterComp innerRef={this.handleRef} {...this.props} />;
+  }
+}
 
 const Inner = styled("div")({
   flex: "auto",
