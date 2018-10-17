@@ -26,10 +26,9 @@ const IndexPage = () => (
         <b>computer linguistics</b> and <b>machine learning</b>.
       </BodyText>
       <BodyText>
-        These days I'm working on helping game devs (and others) to add some delight to their
-        project management routines. Check out what{" "}
-        <Link href="https://twitter.com/supamanu">Manu</Link> and I did on{" "}
-        <Link href="https://www.codecks.io">Codecks</Link> here!
+        These days I'm helping game devs (and others) to add some delight to their project
+        management routines. Check out what <Link href="https://twitter.com/supamanu">Manu</Link>{" "}
+        and I did on <Link href="https://www.codecks.io">Codecks</Link> here!
       </BodyText>
     </div>
     <H2>Technologies</H2>
@@ -59,7 +58,11 @@ const IndexPage = () => (
       <Project time="2015 -" name="Codecks" link="https://www.codecks.io">
         Project management tool for game developers.
       </Project>
-      <Project time="2017" name="DB International Operations" link="https://io.deutschebahn.com">
+      <Project
+        time="2017"
+        name="Homepage for DB International Operations"
+        link="https://io.deutschebahn.com"
+      >
         One example of my WordPress work.
       </Project>
       <Project time="2013 - 2014" name="Patience">
