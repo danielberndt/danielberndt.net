@@ -48,7 +48,8 @@ const ScrollContent = styled("div")({
   left: 0,
   bottom: 0,
   right: 0,
-  overflow: "auto",
+  overflowY: "scroll" /* has to be scroll, not auto */,
+  WebkitOverflowScrolling: "touch",
   padding: "3rem 3rem 6rem",
   "::-webkit-scrollbar": {
     width: "0.4rem",
