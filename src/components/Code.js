@@ -26,7 +26,6 @@ export class Code extends React.Component {
 
   componentDidMount() {
     const {children} = this.props;
-    console.log("this.props", this.props);
     if (typeof children !== "string") return;
     if (typeof window !== "undefined") {
       import("../utils/get-prism").then(Prism => {

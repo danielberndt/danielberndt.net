@@ -17,21 +17,20 @@ const components = {
   code: p => <Code {...p} />,
 };
 
-const MdxBlogPostLayout = ({pageContext, data}) =>
-  console.log(data.mdx.code.body) || (
-    <Layout title={pageContext.title}>
-      <MDXProvider components={components}>
-        <React.Fragment>
-          <SmallHero as={GatsbyLink} to="/">
-            Daniel's Blog
-          </SmallHero>
-          <Overline>{longFormat(pageContext.createdAt)}</Overline>
-          <H1 css={{marginBottom: "3rem"}}>{pageContext.title}</H1>
-          <MDXRenderer>{data.mdx.code.body}</MDXRenderer>
-        </React.Fragment>
-      </MDXProvider>
-    </Layout>
-  );
+const MdxBlogPostLayout = ({pageContext, data}) => (
+  <Layout title={pageContext.title}>
+    <MDXProvider components={components}>
+      <React.Fragment>
+        <SmallHero as={GatsbyLink} to="/">
+          Daniel's Blog
+        </SmallHero>
+        <Overline>{longFormat(pageContext.createdAt)}</Overline>
+        <H1 css={{marginBottom: "3rem"}}>{pageContext.title}</H1>
+        <MDXRenderer>{data.mdx.code.body}</MDXRenderer>
+      </React.Fragment>
+    </MDXProvider>
+  </Layout>
+);
 
 // reopen https://github.com/gatsbyjs/gatsby/issues/7379 showcasing
 
