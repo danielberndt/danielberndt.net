@@ -27,7 +27,7 @@
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.js'",
     "deploy": "gulp deploy",
-    "lint": "eslint --max-warnings=0 src",
+    "lint": "eslint --max-warnings=0 src *.js",
     "is-prettier": "prettier --list-different src/**/*.js *.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
