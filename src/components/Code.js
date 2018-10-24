@@ -37,7 +37,7 @@ export class Code extends React.Component {
   }
 
   render() {
-    const {children: rawChildren, metaString, ...rest} = this.props;
+    const {children: rawChildren, metaString: _, ...rest} = this.props;
     const {prismd} = this.state;
     return prismd ? (
       <StyledCode dangerouslySetInnerHTML={{__html: prismd}} {...rest} />
