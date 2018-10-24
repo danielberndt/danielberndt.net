@@ -8,8 +8,7 @@ const parallelize = require("concurrent-transform");
 
 const CONFIG = {
   dist: "./public",
-  favicon: "./favicon.ico",
-  robots: "./robots.txt",
+  static: "./static/*",
 };
 
 function loadEnv(envFile) {
@@ -21,8 +20,7 @@ function loadEnv(envFile) {
 const build = () => exec("yarn build");
 
 gulp.task("clean-dist", () => del([CONFIG.dist]));
-gulp.task("favicon", ["clean-dist"], () => gulp.src(CONFIG.favicon).pipe(gulp.dest(CONFIG.dist)));
-gulp.task("robots", ["clean-dist"], () => gulp.src(CONFIG.robots).pipe(gulp.dest(CONFIG.dist)));
+gulp.task("static", ["clean-dist"], () => gulp.src(CONFIG.static).pipe(gulp.dest(CONFIG.dist)));
 
 const deployCmd = () => {
   const publisher = awspublish.create({
@@ -66,4 +64,4 @@ const deployCmd = () => {
 
 gulp.task("load-env", loadEnv(".env"));
 gulp.task("build", ["clean-dist", "load-env"], build);
-gulp.task("deploy", ["build", "favicon", "robots"], deployCmd);
+gulp.task("deploy", ["build", "static"], deployCmd);
