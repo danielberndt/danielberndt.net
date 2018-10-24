@@ -5,10 +5,12 @@
   "version": "1.0.0",
   "author": "Daniel Berndt <daniel.berndt@gmail.com>",
   "dependencies": {
+    "date-fns": "^1.29.0",
     "emotion": "^9.2.12",
     "gatsby": "^2.0.19",
     "gatsby-image": "^2.0.14",
     "normalize.css": "^8.0.0",
+    "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
@@ -30,7 +32,6 @@
   },
   "devDependencies": {
     "@danielberndt/exec": "^1.1.0",
-    "@danielberndt/gatsby-mdx": "^0.2.5",
     "@mdx-js/mdx": "^0.15.5",
     "@mdx-js/tag": "^0.15.0",
     "babel-eslint": "^9.0.0",
@@ -44,6 +45,7 @@
     "eslint-plugin-import": "^2.6.0",
     "eslint-plugin-jsx-a11y": "^6.0.0",
     "eslint-plugin-react": "^7.1.0",
+    "gatsby-mdx": "^0.2.0",
     "gatsby-plugin-emotion": "^2.0.5",
     "gatsby-plugin-google-analytics": "^2.0.6",
     "gatsby-plugin-manifest": "^2.0.5",

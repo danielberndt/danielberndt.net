@@ -17,7 +17,7 @@ module.exports = {
     },
     "gatsby-plugin-offline",
     {
-      resolve: `@danielberndt/gatsby-mdx`,
+      resolve: `gatsby-mdx`,
       options: {
         gatsbyRemarkPlugins: [
           {
@@ -31,8 +31,15 @@ module.exports = {
         ],
         extensions: [".mdx", ".md"],
         defaultLayouts: {
-          default: require.resolve("./src/components/MdxLayout.js"),
+          default: require.resolve("./src/components/MdxPageLayout.js"),
         },
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `blogPost`,
+        path: `${__dirname}/src/blog/`,
       },
     },
     "gatsby-transformer-sharp",

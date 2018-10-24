@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "react-emotion";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 import {Hero, H2, H3, Overline, Link, BodyText} from "../style/typo";
+import BlogTeaser from "../components/BlogTeaser";
 
 const ProjectContainer = styled("div")({
   ":not(:last-child)": {
@@ -31,6 +32,7 @@ const IndexPage = () => (
         and I did on <Link href="https://www.codecks.io">Codecks</Link> here!
       </BodyText>
     </div>
+    <BlogTeaser />
     <H2>Technologies</H2>
     <div css={{marginBottom: "3rem"}}>
       <BodyText>

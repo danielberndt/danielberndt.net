@@ -1,0 +1,20 @@
+---
+title: "You might not need Rollup for Bundling Libraries"
+createdAt: 2018-10-24
+---
+
+# Hi this is me
+
+And some content too
+
+```jsx
+const components = {
+  a: Link,
+  h1: p => <H1 css={{":not(:last-child)": {marginBottom: "2rem"}}} {...p} />,
+  h2: p => <H2 css={{":not(:last-child)": {marginBottom: "2rem"}}} {...p} />,
+  h3: p => <H3 css={{":not(:last-child)": {marginBottom: "2rem"}}} {...p} />,
+  p: BodyText,
+  pre: Pre,
+  code: ({children}) => <code>{children}</code>,
+};
+```
