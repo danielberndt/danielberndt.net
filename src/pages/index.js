@@ -21,7 +21,7 @@ const Project = ({time, name, link, children}) => (
 const IndexPage = () => (
   <Layout>
     <Hero>Hello!</Hero>
-    <div css={{marginBottom: "3rem"}}>
+    <div css={{marginBottom: "5rem"}}>
       <BodyText>
         I'm Daniel. Berlin based <b>Web developer</b> with a background in{" "}
         <b>computer linguistics</b> and <b>machine learning</b>.
@@ -34,7 +34,7 @@ const IndexPage = () => (
     </div>
     <BlogTeaser />
     <H2>Technologies</H2>
-    <div css={{marginBottom: "3rem"}}>
+    <div css={{marginBottom: "5rem"}}>
       <BodyText>
         I'm mostly working with <b>JavaScript</b> these days.{" "}
         <Link href="https://reactjs.org/">React</Link> on the frontend and{" "}
@@ -56,7 +56,7 @@ const IndexPage = () => (
       </BodyText>
     </div>
     <H2>Portfolio</H2>
-    <div css={{marginBottom: "3rem"}}>
+    <div css={{marginBottom: "5rem"}}>
       <Project time="2015 -" name="Codecks" link="https://www.codecks.io">
         Project management tool for game developers.
       </Project>

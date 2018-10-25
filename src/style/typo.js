@@ -65,8 +65,8 @@ const InnerSmallHero = styled(AsOrSpan)(sharedHero, {
   },
 });
 
-export const SmallHero = ({children, as, css, ...rest}) => (
-  <OuterSmallHero css={css}>
+export const SmallHero = ({children, as, className, ...rest}) => (
+  <OuterSmallHero className={className}>
     <InnerSmallHero as={as} {...rest}>
       {children}
     </InnerSmallHero>
@@ -182,5 +182,35 @@ export const Pre = styled("pre")({
   },
   ":not(:last-child)": {
     marginBottom: "1rem",
+  },
+});
+
+export const Ul = styled("ul")({
+  ...defaultPadding,
+  lineHeight: 1.5,
+  ":not(:last-child)": {
+    marginBottom: "2rem",
+  },
+});
+
+export const Li = styled("li")({
+  lineHeight: 1.5,
+  marginLeft: "1em",
+  [`& ${BodyText}`]: {
+    marginLeft: 0,
+    marginRight: 0,
+  },
+  ":not(:last-child)": {
+    marginBottom: "1rem",
+  },
+});
+
+export const Hr = styled("hr")({
+  ...defaultPadding,
+  border: 0,
+  height: "0.1rem",
+  backgroundImage: "linear-gradient(121deg, #f0f 0%, #0ff 100%)",
+  ":not(:last-child)": {
+    marginBottom: "3rem",
   },
 });

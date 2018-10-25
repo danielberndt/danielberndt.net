@@ -41,7 +41,7 @@ const BlogTeaser = () => (
     {({BlogPosts}) => (
       <React.Fragment>
         <H2>Latest Posts</H2>
-        <div css={{marginBottom: "3rem"}}>
+        <div css={{marginBottom: "5rem"}}>
           {BlogPosts.edges.map(({node}) => (
             <Preview key={node.context.id} post={node} />
           ))}
