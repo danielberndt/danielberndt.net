@@ -3,7 +3,7 @@ import styled from "react-emotion";
 import {breakPoints} from "../style/breakpoints";
 
 const stripLines = text => {
-  const lines = text.split("\n");
+  const lines = text.replace(/\/\*\*\//g, "").split("\n");
   const minPad = lines
     .filter(line => /\S+/.test(line))
     .reduce((m, line) => Math.min(line.match(/^(\s*)/)[1].length, m), Infinity);
