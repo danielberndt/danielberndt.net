@@ -122,7 +122,7 @@ export const H3 = styled("h3")({
 
 const ExternalOrInternalLink = ({href, children, ...rest}) =>
   href.indexOf("http") === 0 ? (
-    <a href={href} rel="noreferrer noopener" target="_blank" {...rest}>
+    <a href={href} {...rest}>
       {children}
     </a>
   ) : (
