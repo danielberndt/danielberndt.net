@@ -17,7 +17,6 @@ module.exports = {
         theme_color: "#707",
       },
     },
-    "gatsby-plugin-offline",
     {
       resolve: `gatsby-mdx`,
       options: {
