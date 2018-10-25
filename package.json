@@ -23,7 +23,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "npm run lint && gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.js'",
     "deploy": "gulp deploy",

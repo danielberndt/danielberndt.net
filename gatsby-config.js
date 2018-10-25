@@ -1,5 +1,7 @@
 require("dotenv").config();
 
+/* eslint-disable camelcase */
+
 module.exports = {
   siteMetadata: {
     title: "Daniel Berndt - Web Developer",
