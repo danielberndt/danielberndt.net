@@ -4,7 +4,7 @@ import {Link} from "../style/typo";
 import Layout from "./Layout";
 
 const MdxPageLayout = ({children, pageContext, ...props}) => (
-  <Layout title={pageContext.frontmatter.title} lang={pageContext.frontmatter.lang} {...props}>
+  <Layout title={pageContext.frontmatter.title} {...props}>
     <MDXProvider
       components={{
         a: Link,

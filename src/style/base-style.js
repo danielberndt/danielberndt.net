@@ -13,10 +13,6 @@ html {
   letter-spacing: 0.01rem;
 }
 
-html[lang] {
-  margin-top: 0 !important;
-}
-
 @media screen and (min-width: 30em) {
   html {
     font-size: calc(0.88em + 0.4vw);

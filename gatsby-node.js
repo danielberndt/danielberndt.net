@@ -41,7 +41,7 @@ exports.createPages = ({graphql, actions}) => {
         result.data.allMdx.edges.forEach(({node}) => {
           const pathParts = ["blog", node.parent.relativeDirectory, node.parent.name];
           createPage({
-            path: `/${pathParts.join("/")}`,
+            path: `/${pathParts.join("/")}/`,
             component: componentWithMDXScope(
               path.resolve("./src/components/MdxBlogPostLayout.js"),
               node.code.scope,

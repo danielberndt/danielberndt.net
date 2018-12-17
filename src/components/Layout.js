@@ -48,6 +48,8 @@ const ScrollContent = styled("div")({
   left: 0,
   bottom: 0,
   right: 0,
+  display: "flex",
+  flexDirection: "column",
   overflowY: "scroll" /* has to be scroll, not auto */,
   WebkitOverflowScrolling: "touch",
   padding: "3rem 3rem 6rem",
@@ -64,7 +66,14 @@ const ScrollContent = styled("div")({
   },
 });
 
-const Layout = ({children, title, lang}) => (
+const InnerScrollContent = styled("div")({
+  maxWidth: "50rem",
+  marginLeft: "auto",
+  marginRight: "auto",
+  width: "100%",
+});
+
+const Layout = ({children, title}) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -84,7 +93,9 @@ const Layout = ({children, title, lang}) => (
           htmlAttributes={{lang: "en"}}
         />
         <Inner>
-          <ScrollContent lang={lang}>{children}</ScrollContent>
+          <ScrollContent>
+            <InnerScrollContent>{children}</InnerScrollContent>
+          </ScrollContent>
         </Inner>
       </Outer>
     )}

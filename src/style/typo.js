@@ -5,15 +5,6 @@ import {breakPoints} from "./breakpoints";
 
 const AsOrSpan = ({as: Comp = "span", ...rest}) => <Comp {...rest} />;
 
-const defaultPadding = {
-  marginLeft: "2rem",
-  marginRight: "2rem",
-  [breakPoints.mini]: {
-    marginLeft: 0,
-    marginRight: 0,
-  },
-};
-
 const OuterHero = styled("div")({
   marginBottom: "2rem",
   [breakPoints.mini]: {
@@ -74,7 +65,6 @@ export const SmallHero = ({children, as, className, ...rest}) => (
 );
 
 export const H1 = styled("h1")({
-  ...defaultPadding,
   fontSize: "2.5rem",
   fontWeight: 900,
   letterSpacing: "-0.02em",
@@ -114,7 +104,6 @@ export const H2 = ({children, ...rest}) => (
 );
 
 export const H3 = styled("h3")({
-  ...defaultPadding,
   fontSize: "1.5rem",
   fontWeight: 900,
   letterSpacing: "-0.02em",
@@ -153,7 +142,6 @@ export const Link = styled(ExternalOrInternalLink)({
 });
 
 export const BodyText = styled("p")({
-  ...defaultPadding,
   lineHeight: 1.5,
   ":not(:last-child)": {
     marginBottom: "1rem",
@@ -162,7 +150,6 @@ export const BodyText = styled("p")({
 
 export const Overline = styled("div")({
   fontSize: "0.8rem",
-  ...defaultPadding,
   textTransform: "uppercase",
   fontStyle: "italic",
 });
@@ -179,6 +166,8 @@ export const Pre = styled("pre")({
   [breakPoints.mini]: {
     paddingLeft: "0.5rem",
     paddingRight: "0.5rem",
+    marginLeft: "-0.5rem",
+    marginRight: "-0.5rem",
   },
   ":not(:last-child)": {
     marginBottom: "1rem",
@@ -186,7 +175,6 @@ export const Pre = styled("pre")({
 });
 
 export const Ul = styled("ul")({
-  ...defaultPadding,
   lineHeight: 1.5,
   ":not(:last-child)": {
     marginBottom: "2rem",
@@ -206,7 +194,6 @@ export const Li = styled("li")({
 });
 
 export const Hr = styled("hr")({
-  ...defaultPadding,
   border: 0,
   height: "0.1rem",
   backgroundImage: "linear-gradient(121deg, #f0f 0%, #0ff 100%)",
