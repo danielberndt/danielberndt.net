@@ -5,18 +5,18 @@
   "version": "1.0.0",
   "author": "Daniel Berndt <daniel.berndt@gmail.com>",
   "dependencies": {
-    "@db-scripts/eslint-config": "^0.1.3",
-    "date-fns": "^1.29.0",
-    "emotion": "^9.2.12",
+    "@db-scripts/eslint-config": "^0.2.3",
+    "date-fns": "^2.12.0",
     "gatsby": "^2.0.31",
     "gatsby-image": "^2.0.17",
+    "hast-to-hyperscript": "^8.1.0",
     "normalize.css": "^8.0.0",
     "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "react-emotion": "^9.2.12",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^6.0.0",
+    "treat": "^1.2.4"
   },
   "keywords": [
     "gatsby"
@@ -24,7 +24,7 @@
   "license": "MIT",
   "scripts": {
     "build": "npm run lint && gatsby build",
-    "develop": "gatsby develop",
+    "start": "gatsby develop",
     "format": "prettier --write '**/*.js'",
     "deploy": "gulp deploy",
     "lint": "eslint --max-warnings=0 src *.js",
@@ -33,27 +33,19 @@
   },
   "devDependencies": {
     "@danielberndt/exec": "^1.1.0",
-    "@mdx-js/mdx": "^0.15.5",
-    "@mdx-js/tag": "^0.15.0",
-    "concurrent-transform": "^1.0.0",
-    "del": "^3.0.0",
-    "dotenv": "^6.1.0",
-    "emotion-server": "^9.2.12",
-    "eslint": "^5.7.0",
-    "gatsby-mdx": "^0.2.0",
-    "gatsby-plugin-emotion": "^2.0.5",
+    "del": "^5.1.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
     "gatsby-plugin-google-analytics": "^2.0.6",
     "gatsby-plugin-manifest": "^2.0.6",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-sharp": "^2.0.8",
-    "gatsby-remark-images": "^2.0.4",
+    "gatsby-plugin-treat": "^1.4.0",
+    "gatsby-remark-images": "^3.2.6",
     "gatsby-source-filesystem": "^2.0.5",
+    "gatsby-transformer-remark": "^2.7.5",
     "gatsby-transformer-sharp": "^2.1.5",
-    "gulp": "^3.9.1",
-    "gulp-awspublish": "^3.4.0",
-    "gulp-awspublish-router": "^0.2.0",
-    "gulp-cloudfront-invalidate-aws-publish": "^1.0.0",
-    "prettier": "^1.14.3"
+    "prettier": "^2.0.5"
   },
   "repository": {
     "type": "git",

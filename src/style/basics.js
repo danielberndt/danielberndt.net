@@ -1,4 +1,4 @@
-import styled from "react-emotion";
+import React from "react";
 
-export const Row = styled("div")({display: "flex"});
-export const Col = styled("div")({display: "flex", flexDirection: "column"});
+export const Row = (p) => <div {...p} style={{display: "flex"}} />;
+export const Col = (p) => <div {...p} style={{display: "flex", flexDirection: "column"}} />;

@@ -9,6 +9,9 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-react-helmet",
+    `gatsby-plugin-sharp`,
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-treat",
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -18,9 +21,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-mdx`,
+      resolve: `gatsby-transformer-remark`,
       options: {
-        gatsbyRemarkPlugins: [
+        plugins: [
           {
             resolve: "gatsby-remark-images",
             options: {
@@ -30,31 +33,14 @@ module.exports = {
             },
           },
         ],
-        extensions: [".mdx", ".md"],
-        defaultLayouts: {
-          default: require.resolve("./src/components/MdxPageLayout.js"),
-        },
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `blogPost`,
+        name: `blogPosts`,
         path: `${__dirname}/src/blog/`,
       },
-    },
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
-    {
-      resolve: "gatsby-plugin-emotion",
-      options:
-        process.env.NODE_ENV === "development"
-          ? {
-              sourceMap: true,
-              autoLabel: true,
-              labelFormat: "[filename]--[local]",
-            }
-          : {hoist: true},
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
