@@ -1,4 +1,6 @@
 import React, {useEffect} from "react";
+import {codeStyles} from "./Code.treat";
+import cx from "./cx";
 
 const stripLines = (text) => {
   const lines = text.replace(/\/\*\*\//g, "").split("\n");
@@ -10,13 +12,6 @@ const stripLines = (text) => {
     .join("\n")
     .trim();
 };
-const StyledCode = (p) => <div {...p} />;
-// const StyledCode = styled("div")({
-//   fontSize: "1rem",
-//   [breakPoints.small]: {
-//     fontSize: ["0.8rem", "calc(0.3rem + 1.5vw)"],
-//   },
-// });
 
 const childrenToString = (children) => {
   if (typeof children === "string") return children;
@@ -39,7 +34,7 @@ const useGetPrism = () => {
   return prism;
 };
 
-export const Code = ({children, ...rest}) => {
+export const Code = ({children, className, ...rest}) => {
   const Prism = useGetPrism();
   const stringChild = childrenToString(children);
   const rendered = React.useMemo(() => {
@@ -50,8 +45,14 @@ export const Code = ({children, ...rest}) => {
     }
   }, [stringChild, Prism]);
   return rendered ? (
-    <StyledCode dangerouslySetInnerHTML={{__html: rendered}} {...rest} />
+    <code
+      className={cx(codeStyles.base, className)}
+      dangerouslySetInnerHTML={{__html: rendered}}
+      {...rest}
+    />
   ) : (
-    <StyledCode {...rest}>{children}</StyledCode>
+    <code className={cx(codeStyles.base, className)} {...rest}>
+      {children}
+    </code>
   );
 };

@@ -1,22 +1,16 @@
 import React from "react";
 import {useStaticQuery, graphql} from "gatsby";
-import {H2, H3, Overline, Link} from "../style/typo";
+import {H3, Overline, Link, BorderHeading} from "../style/typo";
 import {longFormat} from "../utils/date";
-
-const PreviewContainer = (props) => <div {...props} />;
-//  styled("div")({
-//   ":not(:last-child)": {
-//     marginBottom: "2rem",
-//   },
-// });
+import Col from "../style/Col";
 
 const Preview = ({post}) => (
-  <PreviewContainer>
+  <div>
     <Overline>{longFormat(new Date(post.frontmatter.createdAt))}</Overline>
     <H3>
       <Link href={post.fields.slug}>{post.frontmatter.title}</Link>
     </H3>
-  </PreviewContainer>
+  </div>
 );
 
 const BlogTeaser = () => {
@@ -44,14 +38,14 @@ const BlogTeaser = () => {
   `);
 
   return (
-    <>
-      <H2>Latest Posts</H2>
-      <div style={{marginBottom: "5rem"}}>
+    <Col sp={4}>
+      <BorderHeading>Latest Posts</BorderHeading>
+      <Col sp={1}>
         {blogPosts.edges.map(({node}) => (
-          <Preview key={node.name} post={node.childMarkdownRemark} />
+          <Preview key={node.childMarkdownRemark.fields.slug} post={node.childMarkdownRemark} />
         ))}
-      </div>
-    </>
+      </Col>
+    </Col>
   );
 };
 
