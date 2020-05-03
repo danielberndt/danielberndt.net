@@ -26,7 +26,8 @@
     "build": "npm run lint && gatsby build",
     "start": "gatsby develop",
     "format": "prettier --write '**/*.js'",
-    "deploy": "gulp deploy",
+    "deploy": "node deploy.js deploy",
+    "deploy-from-ci": "node deploy.js deploy-from-external-env",
     "lint": "eslint --max-warnings=0 src *.js",
     "is-prettier": "prettier --list-different src/**/*.js *.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -45,6 +46,7 @@
     "gatsby-source-filesystem": "^2.0.5",
     "gatsby-transformer-remark": "^2.7.5",
     "gatsby-transformer-sharp": "^2.1.5",
+    "minimist": "^1.2.5",
     "prettier": "^2.0.5"
   },
   "repository": {

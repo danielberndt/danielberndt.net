@@ -17,7 +17,7 @@ const Outer = (props) => {
       nodeRef.current.style.background = `linear-gradient(${currentDeg}deg, #f0f 0%, #0ff 100%)`;
       timeoutId = setTimeout(doIt, 200);
     };
-    // timeoutId = setTimeout(doIt, 200);
+    timeoutId = setTimeout(doIt, 200);
 
     return () => clearTimeout(timeoutId);
   }, []);
