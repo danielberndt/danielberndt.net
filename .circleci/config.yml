@@ -8,19 +8,15 @@ jobs:
 
     steps:
       - checkout
-
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "yarn.lock" }}
-            - v1-dependencies-
-
+      - type: cache-restore
+        name: Restore yarn cache
+        key: yarn-{{ checksum "yarn.lock" }}
       - run: yarn install
-
-      - save_cache:
-          paths:
-            - ~/.cache/yarn
-          key: v1-dependencies-{{ checksum "yarn.lock" }}
-
+      - type: cache-save
+        name: Store yarn cache
+        key: yarn-{{ checksum "yarn.lock" }}
+        paths:
+          - ~/.cache/yarn
       - run: yarn lint
       - run: yarn is-prettier
       - run: yarn build

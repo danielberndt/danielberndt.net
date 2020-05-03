@@ -1,60 +1,55 @@
 const path = require("path");
-const componentWithMDXScope = require("gatsby-mdx/component-with-mdx-scope");
+const {createFilePath} = require(`gatsby-source-filesystem`);
 
-exports.createPages = ({graphql, actions}) => {
+exports.onCreateNode = ({node, getNode, actions}) => {
+  const {createNodeField} = actions;
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({node, getNode, basePath: `pages`});
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    });
+  }
+};
+
+exports.createPages = async ({graphql, actions}) => {
   const {createPage} = actions;
-  return new Promise((resolve, reject) => {
-    resolve(
-      graphql(
-        `
-          {
-            allMdx {
-              edges {
-                node {
-                  id
-                  parent {
-                    ... on File {
-                      name
-                      sourceInstanceName
-                      relativeDirectory
-                    }
-                  }
-                  frontmatter {
-                    title
-                    createdAt
-                  }
-                  code {
-                    scope
-                  }
+  const result = await graphql(
+    `
+      {
+        blogPosts: allFile(
+          filter: {sourceInstanceName: {eq: "blogPosts"}}
+          sort: {fields: childMarkdownRemark___frontmatter___createdAt, order: DESC}
+        ) {
+          edges {
+            node {
+              childMarkdownRemark {
+                fields {
+                  slug
+                }
+                frontmatter {
+                  title
                 }
               }
             }
           }
-        `
-      ).then(result => {
-        if (result.errors) {
-          // eslint-disable-next-line no-console
-          console.error(result.errors);
-          reject(result.errors);
         }
+      }
+    `
+  );
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+  const posts = result.data.blogPosts.edges;
 
-        result.data.allMdx.edges.forEach(({node}) => {
-          const pathParts = ["blog", node.parent.relativeDirectory, node.parent.name];
-          createPage({
-            path: `/${pathParts.join("/")}/`,
-            component: componentWithMDXScope(
-              path.resolve("./src/components/MdxBlogPostLayout.js"),
-              node.code.scope,
-              __dirname
-            ),
-            context: {
-              type: "blog",
-              id: node.id,
-              ...node.frontmatter,
-            },
-          });
-        });
-      })
-    );
+  posts.forEach(({node}) => {
+    createPage({
+      path: node.childMarkdownRemark.fields.slug,
+      component: path.resolve(`./src/components/BlogPostLayout.js`),
+      context: {
+        slug: node.childMarkdownRemark.fields.slug,
+      },
+    });
   });
 };
