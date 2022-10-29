@@ -29,6 +29,7 @@ globalStyle("body", {
   flexDirection: "column",
   alignItems: "center",
   overflow: "hidden",
+  backgroundColor: "#f0f",
 });
 
 globalStyle("body::before", {
@@ -42,7 +43,7 @@ globalStyle("body::before", {
   transform: "translate3d(-50%, -50%, 0) rotate(45deg) scale(1.5)",
   //@ts-expect-error
   ...(!process.env.IS_DEV && {
-    animation: `${moveGradient} 15s infinite linear`,
+    animation: `${moveGradient} 20s infinite linear`,
   }),
 });
 

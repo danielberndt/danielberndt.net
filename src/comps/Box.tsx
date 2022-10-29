@@ -1,4 +1,4 @@
-import {cloneElement, ComponentChildren, Ref} from "preact";
+import {cloneElement, ComponentChildren, ComponentProps, Ref} from "preact";
 import type {CSSProperties} from "react";
 import dsStyles from "../styles/index.css";
 import type {DsStyles as RawStyleProps} from "../styles/index.css";
@@ -84,3 +84,9 @@ export const Box = createBox({}, "div");
 export const Row = createBox({display: "flex", flexDir: "row"}, "div");
 export const Col = createBox({display: "flex", flexDir: "column"}, "div");
 export const Text = createBox({lineHeight: "tight", textOverflow: "ellipsis"}, "div");
+
+export const cx = (...args: (false | null | ComponentProps<"div">["className"])[]): string => {
+  const classes = [];
+  for (const arg of args) if (arg) classes.push(arg);
+  return classes.join(" ");
+};

@@ -1,0 +1,21 @@
+---
+import { Col } from "./Box";
+import { Tile } from "./HomeComponents";
+
+const posts = await Astro.glob("../pages/blog/**/*.mdx");
+
+const locale = ["en-GB", "en-US"];
+const shortFormatter = new Intl.DateTimeFormat(locale, {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
+
+---
+
+<Col sp={4}>
+  {posts.slice(0, 3).map((post) => (
+    <Tile date={shortFormatter.format(new Date(post.frontmatter.createdAt))} title={post.frontmatter.title} url={post.url}/>
+  ))}
+</Col>
+

@@ -1,0 +1,90 @@
+---
+title: "I've tried Framer Motion. Now I'm switching back to React Spring"
+createdAt: 2022-10-20
+layout: "../../../comps/BlogPostLayout.astro"
+---
+
+import MarkdownComponents from "../../../comps/MarkdownComponents.tsx";
+export const components = MarkdownComponents;
+
+# I've tried Framer Motion. Now I'm switching back to React Spring
+
+## Whats nice about Framer Motion
+
+- Nice abstractions: `<AnimatePresence/>` _feels_ nicer to work with than react-spring's `useTransition` which returns a function that you pass in your render function.
+- Powerful features around Layout Animations that react-spring does not (aim to) offer. Not working perfectly in some more tricky situations. Debugging those requires you to have a deeper understanding of how the magic actually works under the hood.
+
+## Whats not so nice about Framer Motion
+
+- Examples on Docs are using codesandbox.io which takes ages (10+ seconds) to load.
+- Seemingly simple things like applying `pointerEvents: "none"` if the `opacity` is less than 0.5 require you to jump surprisingly deep into the framer api:
+
+  ```jsx
+  // taken from https://gist.github.com/mattgperry/5046aedef6bdec7f28efe3712cf3b6a8
+
+  const Overlay = ({ isVisible }) => {
+    const opacity = useMotionValue(0);
+    const pointerEvents = useTransform(opacity, (latest) =>
+      latest < 0.5 ? "none" : "auto"
+    );
+
+    return (
+      <motion.div
+        animate={{ opacity: isVisible ? 1 : 0 }}
+        style={{ opacity, pointerEvents }}
+      />
+    );
+  };
+  ```
+
+  I was somewhat baffled by this code. Who is control of the `opacity` value? The `useMotionValue` hook or the `animate` prop of the `motion.div`? Apparently the latter one.
+
+  Here's what it would look like with react-spring:
+
+  ```jsx
+  const Overlay = ({ isVisible }) => {
+    const opacity = useSpring(isVisible ? 1 : 0);
+    const pointerEvents = opacity.to((val) => (val > 0.5 ? "auto" : "none"));
+
+    return <animated.div style={{ opacity, pointerEvents }} />;
+  };
+  ```
+
+  This API here is also a bit awkward, but that's the price you need to pay in order to avoid additional react-rerenders in both examples. I definitely prefer the flow of control in the react-spring example though.
+
+- `AnimatePresence` only seems to work (well) in simpler contexts. Here's one context in which it was quite hard to work with. I'm working on a notification stack component which only fully shows the latest notification, and puts the other notifcations behind with a slight offset. The fixed container should only be rendered if at least one message is still present. Otherwise render `null`.
+
+  Here's the code I came up with.
+
+```jsx
+const ShowMessages = ({ messages }) => {
+  const [shown, setShown] = useState(messages.size > 0);
+
+  useEffect(() => {
+    if (!shown && messages.size > 0) setShown(true);
+  }, [messages.size, shown]);
+
+  if (!shown && messages.size === 0) return null;
+
+  return (
+    <div style={{ position: "fixed", bottom: 10, left: 10 }}>
+      <AnimatePresence
+        onExitComplete={() => {
+          // onExitComplete will be called for any message to exit, not just the last one
+          if (messages.size === 0) setShown(false);
+        }}
+      >
+        {[...messages.values()].map((msg, idx) => (
+          <MessageComp key={msg.key} message={msg} idx={idx} />
+        ))}
+      </AnimatePresence>
+    </div>
+  );
+};
+```
+
+    To be fair, there's no elegant solution using react-spring either and it would probably require you to work with two springs.
+
+    Another instance in which `AnimatePresence` failed though was when using a single `useMotionValue` in two `motion.divs`. The AnimatePresence wouldn't unmount. I had two use two `useMotionValue` to resolve this.
+
+- Certain things seem extremely hard to model. I'm working with react-router. When on `/item-list`, I'ld like to show an edit modal when going to a route like `/item-list/edit/123`. When hitting the `next` button on this modal to go to e.g. `/item-list/edit/124`, I'd like the current edit modal to fade out and the new one to fade in. It's really, really hard to model this in framer-motion, whereas react-spring's `useTransition` is pretty much made for this and plays quite well with the hooks react-router has to offer.

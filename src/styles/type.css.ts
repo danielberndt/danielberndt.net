@@ -7,10 +7,13 @@ import {layoutStyles} from "./layout.css";
 const baseStyles = {
   textTransform: {
     none: style({textTransform: "none"}),
-    uppercase: style({textTransform: "uppercase", letterSpacing: "0.04em"}),
+    uppercase: style({textTransform: "uppercase"}),
   },
+  letterSpacing: styleVariants({wide: "0.2em"}, (val) => ({letterSpacing: val})),
   textDecoration: styleArray(["none"], (val) => ({textDecoration: val})),
-  weight: styleArray(["normal", "bold"], (val) => ({fontWeight: val})),
+  weight: styleVariants({normal: "normal", bold: "bold", light: 300, heavy: 900}, (val) => ({
+    fontWeight: val,
+  })),
   textAlign: styleArray(["left", "right", "center"], (val) => ({textAlign: val})),
   variantNumeric: {
     tabularNums: style({fontVariantNumeric: "tabular-nums"}),
@@ -21,6 +24,7 @@ const baseStyles = {
     val !== "none" ? [layoutStyles.overflow.hidden, {textOverflow: val}] : {textOverflow: val}
   ),
   whiteSpace: styleArray(["nowrap"], (val) => ({whiteSpace: val})),
+  fontStyle: styleArray(["italic"], (val) => ({fontStyle: val})),
 };
 
 export const typeStyles = {

@@ -1,7 +1,7 @@
 import {calc} from "@vanilla-extract/css-utils";
 import {sizeThemeVars} from "./themes/size-themes.css";
 
-export const lineHeights = {none: "1", tight: "1.125", normal: "1.25"};
+export const lineHeights = {none: "1", tight: "1.125", normal: "1.5"};
 
 export const boxShadowPartials = {
   soft: (color: string, intensity: string) =>

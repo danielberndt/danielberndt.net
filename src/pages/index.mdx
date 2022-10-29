@@ -1,0 +1,86 @@
+---
+layout: "../comps/RootLayout.astro"
+---
+
+import {HiddenH1, HelloH2, Tile} from "../comps/HomeComponents.tsx";
+import LatestPosts from "../comps/LatestPosts.astro";
+import {Col} from "../comps/Box.tsx";
+import MarkdownComponents from "../comps/MarkdownComponents.tsx";
+export const components = MarkdownComponents;
+
+<HiddenH1>Daniel Berndt - Berlin-based Web Developer</HiddenH1>
+<section>
+<HelloH2>Hello!</HelloH2>
+
+I'm Daniel. Berlin-based **web developer** with a background in
+**computer linguistics** and **machine learning**.
+
+These days I'm helping game devs (and others) to add some delight to their project management routines. Check out what I'm doing together with [Maschinen-Mensch](http://maschinen-mensch.com/) and [Codecks](https://www.codecks.io) here!
+
+</section>
+
+<section>
+
+## Latest Blog Posts
+
+<LatestPosts />
+
+</section>
+
+<section>
+
+## Technologies
+
+Both, [Typescript](https://www.typescriptlang.org/) and [Flow](https://flow.org/) are great additions for creating maintainable software.
+
+Database-wise I'm a big fan of [PostgreSQL](https://www.postgresql.org/), even though I'm still not quite sure, how to actually pronounce it.
+
+Oh yes. And I do quite a lot of contract work with [WordPress](https://wordpress.org/). Not necessarily because I like the technology, but because it often makes a lot of sense for the customer.
+
+</section>
+
+<section>
+
+## Portfolio
+
+<Col sp={6}>
+<Tile
+  date="2015 -"
+  title="Codecks"
+  url="https://www.codecks.io"
+  description="Project management tool for game developers."
+/>
+
+<Tile
+  date="2017"
+  title="Homepage for DB International Operations"
+  url="https://io.deutschebahn.com"
+  description="One example of my WordPress work."
+/>
+
+<Tile date="2013 - 2014" title="Patience" description="Assisting experts to teach online." />
+
+<Tile
+  date="2012 - 2013"
+  title="Jura Online"
+  url="https://jura-online.de"
+  description="Learning platform for German law students."
+/>
+
+<Tile
+  date="2010 - "
+  title="piq"
+  url="https://piq.codeus.net"
+  description="Pixel art community. My first big web app. The website was completely redone in 2018."
+/>
+</Col>
+
+</section>
+
+<section>
+
+## Get in touch
+
+I mostly hang out on [Twitter](https://twitter.com/D40B). You can also check out some of my work on [GitHub](https://github.com/danielberndt).
+
+</section>

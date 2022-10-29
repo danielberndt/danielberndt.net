@@ -20,20 +20,21 @@ export const sizeThemeVars = createThemeContract({
     16: "",
     22: "",
     28: "",
+    64: "",
   },
 });
 
 const mdThemeVars: MapLeafNodes<typeof sizeThemeVars, string> = {
   space: {
-    4: "4px",
-    8: "8px",
-    12: "12px",
-    16: "16px",
-    24: "24px",
-    32: "32px",
-    48: "48px",
-    64: "64px",
-    96: "96px",
+    4: `${4 / 16}rem`,
+    8: `${8 / 16}rem`,
+    12: `${12 / 16}rem`,
+    16: `${16 / 16}rem`,
+    24: `${24 / 16}rem`,
+    32: `${32 / 16}rem`,
+    48: `${48 / 16}rem`,
+    64: `${64 / 16}rem`,
+    96: `${96 / 16}rem`,
   },
   fontSize: {
     10: `${10 / 16}rem`,
@@ -42,6 +43,7 @@ const mdThemeVars: MapLeafNodes<typeof sizeThemeVars, string> = {
     16: `${16 / 16}rem`,
     22: `${22 / 16}rem`,
     28: `${28 / 16}rem`,
+    64: `${64 / 16}rem`,
   },
 };
 

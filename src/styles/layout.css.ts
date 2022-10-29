@@ -68,7 +68,7 @@ const baseStyles = {
   mr: styleArray(["auto"], (v) => ({marginRight: v})),
   mb: styleArray(["auto"], (v) => ({marginBottom: v})),
 
-  width: styleArray(["100%", "1em", "60rem"], (v) => ({width: v})),
+  width: styleArray(["100%", "1em", "50rem"], (v) => ({width: v})),
   height: styleArray(["100%", "1em", "0"], (v) => ({height: v})),
 
   minWidth: styleArray(["0", "100%"], (v) => ({minWidth: v})),

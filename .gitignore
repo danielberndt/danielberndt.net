@@ -17,3 +17,9 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+*.pkrvars.hcl
+*.tfvars
+*.tfstate
+*.tfstate.*
+.terraform/
