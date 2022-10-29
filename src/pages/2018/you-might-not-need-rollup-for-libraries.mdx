@@ -1,10 +1,10 @@
 ---
 title: "You might not need Rollup for Bundling Libraries"
 createdAt: 2018-10-25
-layout: "../../../comps/BlogPostLayout.astro"
+layout: "../../comps/BlogPostLayout.astro"
 ---
 
-import MarkdownComponents from "../../../comps/MarkdownComponents.tsx";
+import MarkdownComponents from "../../comps/MarkdownComponents.tsx";
 export const components = MarkdownComponents;
 
 # You might not need Rollup for Bundling Libraries
@@ -21,8 +21,8 @@ So I did a little experiment and discovered that **you might be much better off 
   **`index.js`**
 
   ```jsx
-  export {default as Small} from "./Small.js";
-  export {default as Big} from "./Big.js";
+  export { default as Small } from "./Small.js";
+  export { default as Big } from "./Big.js";
   ```
 
   **`Small.js`**
@@ -48,7 +48,7 @@ So I did a little experiment and discovered that **you might be much better off 
 - The toy library is imported like this:
 
   ```jsx
-  import {Small} from "toy-library";
+  import { Small } from "toy-library";
   ```
 
 So we're trying to test whether certain ways of publishing this library lead to omitting the `Big` Component from our final build.
@@ -89,7 +89,7 @@ function Big() {
   return Object.keys(lodash).join(",");
 }
 
-export {Small, Big};
+export { Small, Big };
 ```
 
 While nice and concise this doesn't help webpack from recognising that `import {Small} from "toy-library"` doesn't actually require to load the whole `lodash` library.
@@ -120,7 +120,7 @@ Since the toy library isn't using any fancy javascript features, babel isn't doi
 So let's look what the result looks like when importing the `Small` function via
 
 ```jsx
-import {Small} from "toy-library";
+import { Small } from "toy-library";
 ```
 
 **58.32 KB** gzipped

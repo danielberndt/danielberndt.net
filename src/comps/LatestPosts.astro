@@ -2,7 +2,7 @@
 import { Col } from "./Box";
 import { Tile } from "./HomeComponents";
 
-const posts = await Astro.glob("../pages/blog/**/*.mdx");
+const posts = await Astro.glob("../pages/20*/**/*.mdx");
 
 const locale = ["en-GB", "en-US"];
 const shortFormatter = new Intl.DateTimeFormat(locale, {
