@@ -1,5 +1,5 @@
-import { defineConfig } from "astro/config";
-import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import {defineConfig} from "astro/config";
+import {vanillaExtractPlugin} from "@vanilla-extract/vite-plugin";
 import preact from "@astrojs/preact";
 
 // https://astro.build/config
@@ -9,6 +9,7 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   integrations: [preact(), mdx()],
   vite: {
-    plugins: [vanillaExtractPlugin()]
-  }
+    plugins: [vanillaExtractPlugin()],
+    build: {cssCodeSplit: false},
+  },
 });
