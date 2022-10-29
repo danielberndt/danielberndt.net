@@ -3,14 +3,6 @@
   "rules": {
     "no-shadow": ["warn", {"hoist": "all"}],
     "no-cond-assign": ["error", "except-parens"],
-    "@typescript-eslint/consistent-type-imports": "warn",
-    "@typescript-eslint/no-shadow": "warn",
-    "@typescript-eslint/no-redeclare": "warn",
-    "@typescript-eslint/ban-types": "warn",
-    "@typescript-eslint/await-thenable": "warn",
-    "@typescript-eslint/no-floating-promises": "warn",
-    "@typescript-eslint/prefer-namespace-keyword": "warn",
-    "@typescript-eslint/restrict-plus-operands": "warn",
     "import/no-duplicates": "warn"
   }
 }

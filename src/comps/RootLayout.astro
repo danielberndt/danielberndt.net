@@ -1,0 +1,19 @@
+---
+import "../styles/global-styles.css"
+import MainContainer from "./MainContainer";
+const {title} = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title || "Daniel Berndt - Berlin-based Web Developer"}</title>
+	</head>
+	<body>
+		<MainContainer >
+			<slot/>
+		</MainContainer>
+	</body>
+</html>

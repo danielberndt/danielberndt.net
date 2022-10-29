@@ -4,8 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "start": "IS_DEV=true astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
@@ -16,9 +15,12 @@
     "preact": "^10.6.5"
   },
   "devDependencies": {
+    "@types/react": "^18.0.24",
     "@vanilla-extract/css": "^1.9.1",
+    "@vanilla-extract/css-utils": "^0.1.2",
     "@vanilla-extract/vite-plugin": "^3.6.1",
     "eslint": "^8.26.0",
-    "eslint-config-react-app": "^7.0.1"
+    "eslint-config-react-app": "^7.0.1",
+    "prettier": "^2.7.1"
   }
 }
