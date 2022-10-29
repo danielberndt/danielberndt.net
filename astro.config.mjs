@@ -6,10 +6,17 @@ import preact from "@astrojs/preact";
 import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
+import sitemap from "@astrojs/sitemap";
+
+// https://astro.build/config
 export default defineConfig({
-  integrations: [preact(), mdx()],
+  site: "https://www.danielberndt.net",
+  trailingSlash: "always",
+  integrations: [preact(), mdx(), sitemap()],
   vite: {
     plugins: [vanillaExtractPlugin()],
-    build: {cssCodeSplit: false},
+    build: {
+      cssCodeSplit: false,
+    },
   },
 });

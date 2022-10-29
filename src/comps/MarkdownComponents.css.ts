@@ -87,6 +87,7 @@ export const markdownComponentStyles = {
     dsStyles.fontStyle.italic,
     dsStyles.size[28],
     gradientBottomBorder,
+    dsStyles.lineHeight.normal,
   ]),
   p: style([textContent, mbs["1em"]]),
   ul: style([mbs["1em"], dsStyles.pl[4]]),
