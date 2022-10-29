@@ -1,8 +1,10 @@
 #!/bin/bash -e
 set -e
-set -a # automatically export all variables
-source $DOTENV_FILE
-set +a
+if [[ "$CI" != "true" ]]; then
+  set -a # automatically export all variables
+  source $DOTENV_FILE
+  set +a
+fi
 
 
 # all non html resources get big cache
