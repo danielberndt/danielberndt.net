@@ -1,6 +1,6 @@
 locals {
   project_prefix     = "danielberndt-net"
-  subdomain          = "www-next"
+  subdomain          = "www"
   host               = "danielberndt.net"
   has_client_routing = false
 }
