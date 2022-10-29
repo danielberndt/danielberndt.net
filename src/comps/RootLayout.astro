@@ -2,6 +2,8 @@
 import "../styles/global-styles.css"
 import MainContainer from "./MainContainer";
 const {title} = Astro.props;
+
+const analyticsScript = `<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "64be510055c64d50837975a45dcc8538"}'></script>`
 ---
 
 <html lang="en">
@@ -15,6 +17,6 @@ const {title} = Astro.props;
 		<MainContainer sp={Astro.props.sp}>
 			<slot/>
 		</MainContainer>
-		<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "64be510055c64d50837975a45dcc8538"}'></script>
+		<Fragment set:html={analyticsScript}/>
 	</body>
 </html>
