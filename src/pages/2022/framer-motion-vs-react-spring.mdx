@@ -1,5 +1,5 @@
 ---
-title: "I've tried Framer Motion. Now I'm switching back to React Spring"
+title: "I've tried Framer Motion. Now I'm switching back to react-spring"
 createdAt: 2022-10-20
 layout: "../../comps/BlogPostLayout.astro"
 ---
@@ -7,12 +7,16 @@ layout: "../../comps/BlogPostLayout.astro"
 import MarkdownComponents from "../../comps/MarkdownComponents.tsx";
 export const components = MarkdownComponents;
 
-# I've tried Framer Motion. Now I'm switching back to React Spring
+# I've tried Framer Motion. Now I'm switching back to react-spring
+
+For the longest time I've been using [react-spring](https://react-spring.dev/) for almost all of my animation needs in react. For a new project, I wanted to test out [Framer Motion](https://www.framer.com/motion/).
 
 ## Whats nice about Framer Motion
 
-- Nice abstractions: `<AnimatePresence/>` _feels_ nicer to work with than react-spring's `useTransition` which returns a function that you pass in your render function.
+- Nice abstractions. One example would be `<AnimatePresence/>` which feels nicer to work with than react-spring's `useTransition`.
 - Powerful features around Layout Animations that react-spring does not (aim to) offer. Not working perfectly in some more tricky situations. Debugging those requires you to have a deeper understanding of how the magic actually works under the hood.
+- Very little need to use prop-drilling to orchestrate a single transition affecting multiple components. Rather than requiring a single place to control and manage all transitions, each `motion.div` can define their individual behaviour.
+- Nice defaults: using springs for css-properties involving motion and easings for others. (There's hardly ever a need to use a bouncy spring behaviour for e.g. `opacity`). The default animation speed seems is set way too slow for most of my animation needs however.
 
 ## Whats not so nice about Framer Motion
 
@@ -22,7 +26,7 @@ export const components = MarkdownComponents;
   ```jsx
   // taken from https://gist.github.com/mattgperry/5046aedef6bdec7f28efe3712cf3b6a8
 
-  const Overlay = ({ isVisible }) => {
+  const Overlay = ({isVisible}) => {
     const opacity = useMotionValue(0);
     const pointerEvents = useTransform(opacity, (latest) =>
       latest < 0.5 ? "none" : "auto"
@@ -30,8 +34,8 @@ export const components = MarkdownComponents;
 
     return (
       <motion.div
-        animate={{ opacity: isVisible ? 1 : 0 }}
-        style={{ opacity, pointerEvents }}
+        animate={{opacity: isVisible ? 1 : 0}}
+        style={{opacity, pointerEvents}}
       />
     );
   };
@@ -42,49 +46,52 @@ export const components = MarkdownComponents;
   Here's what it would look like with react-spring:
 
   ```jsx
-  const Overlay = ({ isVisible }) => {
+  const Overlay = ({isVisible}) => {
     const opacity = useSpring(isVisible ? 1 : 0);
     const pointerEvents = opacity.to((val) => (val > 0.5 ? "auto" : "none"));
 
-    return <animated.div style={{ opacity, pointerEvents }} />;
+    return <animated.div style={{opacity, pointerEvents}} />;
   };
   ```
 
-  This API here is also a bit awkward, but that's the price you need to pay in order to avoid additional react-rerenders in both examples. I definitely prefer the flow of control in the react-spring example though.
+  This API here is also a bit awkward, but that's the price you need to pay in order to avoid additional react-rerenders in both examples. I definitely prefer the flow of control in the react-spring example though. `useSpring` is in charge of the opacity value and everything else is derived from it.
 
-- `AnimatePresence` only seems to work (well) in simpler contexts. Here's one context in which it was quite hard to work with. I'm working on a notification stack component which only fully shows the latest notification, and puts the other notifcations behind with a slight offset. The fixed container should only be rendered if at least one message is still present. Otherwise render `null`.
+- `AnimatePresence` isn't as magical as I have hoped. Here's one context in which it was harder to work with than expected: I'm working on a notification component which shows notifications in a stack. The fixed container should only be rendered if at least one message is still present. Otherwise render `null`.
 
   Here's the code I came up with.
 
-```jsx
-const ShowMessages = ({ messages }) => {
-  const [shown, setShown] = useState(messages.size > 0);
+  ```jsx
+  const ShowMessages = ({messages}) => {
+    const [shown, setShown] = useState(messages.size > 0);
 
-  useEffect(() => {
-    if (!shown && messages.size > 0) setShown(true);
-  }, [messages.size, shown]);
+    useEffect(() => {
+      if (!shown && messages.size > 0) setShown(true);
+    }, [messages.size, shown]);
 
-  if (!shown && messages.size === 0) return null;
+    if (!shown && messages.size === 0) return null;
 
-  return (
-    <div style={{ position: "fixed", bottom: 10, left: 10 }}>
-      <AnimatePresence
-        onExitComplete={() => {
-          // onExitComplete will be called for any message to exit, not just the last one
-          if (messages.size === 0) setShown(false);
-        }}
-      >
-        {[...messages.values()].map((msg, idx) => (
-          <MessageComp key={msg.key} message={msg} idx={idx} />
-        ))}
-      </AnimatePresence>
-    </div>
-  );
-};
-```
+    return (
+      <div style={{position: "fixed", bottom: 10, left: 10}}>
+        <AnimatePresence
+          onExitComplete={() => {
+            // onExitComplete will be called for any message to exit, not just the last one
+            if (messages.size === 0) setShown(false);
+          }}
+        >
+          {[...messages.values()].map((msg, idx) => (
+            <MessageComp key={msg.key} message={msg} idx={idx} />
+          ))}
+        </AnimatePresence>
+      </div>
+    );
+  };
+  ```
 
-    To be fair, there's no elegant solution using react-spring either and it would probably require you to work with two springs.
+  To be fair, there's no elegant solution using react-spring either. You'd either use two springs, or use the `onDestroyed` hook.
 
-    Another instance in which `AnimatePresence` failed though was when using a single `useMotionValue` in two `motion.divs`. The AnimatePresence wouldn't unmount. I had two use two `useMotionValue` to resolve this.
+  Another instance in which `AnimatePresence` failed though was when using a single `useMotionValue` in two `motion.divs`. The AnimatePresence wouldn't unmount. I had two use two `useMotionValue` to resolve this.
 
-- Certain things seem extremely hard to model. I'm working with react-router. When on `/item-list`, I'ld like to show an edit modal when going to a route like `/item-list/edit/123`. When hitting the `next` button on this modal to go to e.g. `/item-list/edit/124`, I'd like the current edit modal to fade out and the new one to fade in. It's really, really hard to model this in framer-motion, whereas react-spring's `useTransition` is pretty much made for this and plays quite well with the hooks react-router has to offer.
+- Certain things seem extremely hard to model. I'm working with react-router. When on `/item-list`, I'd like to show an edit modal when opening a route like `/item-list/edit/123`. The `next` button on this modal shows the next item. I'd like the current edit modal to fade out and the new one to fade in.
+  It's really, really hard to model this in Framer Motion, whereas react-spring's `useTransition` is pretty much made for this and plays fairly well with the hooks react-router has to offer.
+
+So eventually I switched back to react-spring. It's often not as comortable, but I do feel more in control.

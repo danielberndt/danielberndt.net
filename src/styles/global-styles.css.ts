@@ -41,7 +41,6 @@ globalStyle("body::before", {
   height: "100vmax",
   backgroundImage: `linear-gradient(45deg, #f0f 0%, #0ff 100%)`,
   transform: "translate3d(-50%, -50%, 0) rotate(45deg) scale(1.5)",
-  //@ts-expect-error
   ...(!process.env.IS_DEV && {
     animation: `${moveGradient} 20s infinite linear`,
   }),

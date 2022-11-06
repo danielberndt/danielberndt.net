@@ -14,7 +14,7 @@ const shortFormatter = new Intl.DateTimeFormat(locale, {
 ---
 
 <Col sp={4}>
-  {posts.slice(0, 3).map((post) => (
+  {posts.sort((p1, p2) => p1.frontmatter.createdAt > p2.frontmatter.createdAt ? -1 : 1).slice(0, 3).map((post) => (
     <Tile date={shortFormatter.format(new Date(post.frontmatter.createdAt))} title={post.frontmatter.title} url={post.url}/>
   ))}
 </Col>

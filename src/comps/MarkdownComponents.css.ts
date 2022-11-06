@@ -70,9 +70,10 @@ export const markdownComponentStyles = {
     dsStyles.position.relative,
     gradientBottomBorder,
     {
-      transition: "background 200ms ease-in-out",
+      transition: "color 200ms ease-in-out",
 
       ":hover": {
+        color: "#CA25F0",
         animation: `${moveGradient} 2s infinite linear`,
       },
     },
