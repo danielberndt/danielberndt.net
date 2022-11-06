@@ -36,6 +36,7 @@ export const decorationStyles = {
     vars: {[bgAlphaVar]: val},
   })),
   color: styleVariants(cols.text, (v) => ({color: v})),
+  hoverColor: styleVariants(cols.hoverText, (v) => [transitions.colors, {":hover": {color: v}}]),
   borderWidth: styleArray([0, 1, 2], (val) =>
     val ? [withBorder, {borderWidth: val}] : {borderWidth: val}
   ),

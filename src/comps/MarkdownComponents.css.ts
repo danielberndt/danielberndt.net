@@ -1,5 +1,6 @@
 import {createVar, keyframes, style} from "@vanilla-extract/css";
 import {styleArray} from "../styles/css-utils";
+import {transitions} from "../styles/decoration.css";
 import dsStyles from "../styles/index.css";
 import {sizeThemeVars} from "../styles/themes/size-themes.css";
 import {colors, media} from "../styles/tokens";
@@ -69,11 +70,10 @@ export const markdownComponentStyles = {
     dsStyles.weight.bold,
     dsStyles.position.relative,
     gradientBottomBorder,
+    transitions.colors,
+    dsStyles.hoverColor.link,
     {
-      transition: "color 200ms ease-in-out",
-
       ":hover": {
-        color: "#CA25F0",
         animation: `${moveGradient} 2s infinite linear`,
       },
     },

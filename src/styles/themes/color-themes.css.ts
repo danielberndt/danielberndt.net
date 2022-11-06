@@ -15,6 +15,9 @@ export const colorThemeVars = createThemeContract({
     primary: "",
     secondary: "",
   },
+  hoverText: {
+    link: "",
+  },
 
   border: {
     default: "",
@@ -53,6 +56,9 @@ export const lightTheme = createDSTheme({
     text: {
       primary: colors.gray800,
       secondary: colors.gray600,
+    },
+    hoverText: {
+      link: "#CA25F0",
     },
 
     border: {

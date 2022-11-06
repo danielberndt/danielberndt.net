@@ -1,7 +1,9 @@
 import type {ComponentChildren} from "preact";
-import {BoxProps, Col} from "./Box";
+import {Box, BoxProps, Col, Row} from "./Box";
+import githubLogo from "../assets/github-icon.svg";
 
-const MainContainer = ({children, sp = 8}: {children: ComponentChildren; sp?: BoxProps["sp"]}) => {
+type Props = {children: ComponentChildren; sp?: BoxProps["sp"]; editFilePath?: string};
+const MainContainer = ({children, sp = 8, editFilePath}: Props) => {
   return (
     <Col
       as="main"
@@ -16,6 +18,26 @@ const MainContainer = ({children, sp = 8}: {children: ComponentChildren; sp?: Bo
     >
       <Col prettyScrollBar overflow="auto" maxWidth="100%" px={7} py={6} sm_px={3} sp={sp}>
         {children}
+        {editFilePath && (
+          <Row
+            styleChild
+            size={10}
+            align="center"
+            sp={1}
+            color="secondary"
+            hoverColor="link"
+            justify="end"
+          >
+            <a
+              href={`https://github.com/danielberndt/danielberndt.net/blob/main/src/${editFilePath}`}
+            >
+              <span>Suggest edit</span>
+              <Box styleChild height="auto" width="1em" size={14}>
+                <img src={githubLogo} alt="GitHub" />
+              </Box>
+            </a>
+          </Row>
+        )}
       </Col>
     </Col>
   );

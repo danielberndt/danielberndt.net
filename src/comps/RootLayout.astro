@@ -1,7 +1,11 @@
 ---
+import {resolve, relative} from "path";
 import "../styles/global-styles.css"
 import MainContainer from "./MainContainer";
-const {title} = Astro.props;
+const {title, sp, frontmatter} = Astro.props;
+
+const srcDir = resolve(import.meta.url.replace("file://", ""), "../..")
+const file = frontmatter?.file;
 
 const analyticsScript = `<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "64be510055c64d50837975a45dcc8538"}'></script>`
 ---
@@ -14,7 +18,7 @@ const analyticsScript = `<script defer src='https://static.cloudflareinsights.co
 		<title>{title || "Daniel Berndt - Berlin-based Web Developer"}</title>
 	</head>
 	<body>
-		<MainContainer sp={Astro.props.sp}>
+		<MainContainer sp={sp} editFilePath={file && relative(srcDir, file)}>
 			<slot/>
 		</MainContainer>
 		<Fragment set:html={analyticsScript}/>
