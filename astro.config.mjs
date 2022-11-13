@@ -1,9 +1,12 @@
 import {defineConfig} from "astro/config";
 import {vanillaExtractPlugin} from "@vanilla-extract/vite-plugin";
 import preact from "@astrojs/preact";
+
+// https://astro.build/config
 import mdx from "@astrojs/mdx";
+
+// https://astro.build/config
 import sitemap from "@astrojs/sitemap";
-import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,6 +19,4 @@ export default defineConfig({
       cssCodeSplit: false,
     },
   },
-  output: "server",
-  adapter: cloudflare(),
 });
