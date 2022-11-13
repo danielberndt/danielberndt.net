@@ -2,7 +2,7 @@ name: Deploy Page
 
 on:
   push:
-    branches: [main]
+    branches: []
   workflow_dispatch:
 
 jobs:
