@@ -16,12 +16,12 @@ For the longest time I've been using [react-spring](https://react-spring.dev/) f
 - Nice abstractions. One example would be `<AnimatePresence/>` which feels nicer to work with than react-spring's `useTransition`.
 - Powerful features around Layout Animations that react-spring does not (aim to) offer. Not working perfectly in some more tricky situations. Debugging those requires you to have a deeper understanding of how the magic actually works under the hood.
 - Very little need to use prop-drilling to orchestrate a single transition affecting multiple components. Rather than requiring a single place to control and manage all transitions, each `motion.div` can define their individual behaviour.
-- Nice defaults: using springs for css-properties involving motion and easings for others. (There's hardly ever a need to use a bouncy spring behaviour for e.g. `opacity`). The default animation speed seems is set way too slow for most of my animation needs however.
+- Nice defaults: using springs for css-properties involving motion and easings for others. (There's hardly ever a need to use a bouncy spring behaviour for e.g. `opacity`). The default animation speed is set way too slow for most of my animation needs however.
 
 ## Whats not so nice about Framer Motion
 
-- Examples on Docs are using codesandbox.io which takes ages (10+ seconds) to load.
-- Seemingly simple things like applying `pointerEvents: "none"` if the `opacity` is less than 0.5 require you to jump surprisingly deep into the framer api:
+- Examples in Docs are using codesandbox.io which takes ages (10+ seconds) to load.
+- Seemingly simple things like applying `pointerEvents: "none"` if the `opacity` is less than 0.5 require you to jump surprisingly deep into the Framer Motion api:
 
   ```jsx
   // taken from https://gist.github.com/mattgperry/5046aedef6bdec7f28efe3712cf3b6a8
