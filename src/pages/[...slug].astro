@@ -1,5 +1,6 @@
 ---
 import {CollectionEntry, getCollection} from "astro:content";
+import {resolve, join} from "path";
 import MarkdownComponents from "../comps/MarkdownComponents";
 import {Box, Col} from "../comps/Box";
 import {BoldLink} from "../comps/HomeComponents";
@@ -17,9 +18,10 @@ export async function getStaticPaths() {
 
 const entry: CollectionEntry<"blog"> = Astro.props.entry;
 const {Content} = await entry.render();
+const file = resolve(join("src", "content", entry.collection, entry.id));
 ---
 
-<RootLayout title={entry.data.title} sp={7} frontmatter={entry.data}>
+<RootLayout title={entry.data.title} sp={7} file={file}>
   <header>
     <BoldLink href="/">danielberndt.net</BoldLink>
   </header>
