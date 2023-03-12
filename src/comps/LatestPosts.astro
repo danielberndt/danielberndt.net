@@ -1,21 +1,23 @@
 ---
-import { Col } from "./Box";
-import { Tile } from "./HomeComponents";
+import {getCollection} from "astro:content";
+import {formatDate} from "../date-utils";
+import {Col} from "./Box";
+import {Tile} from "./HomeComponents";
 
-const posts = await Astro.glob("../pages/20*/**/*.mdx");
-
-const locale = ["en-GB", "en-US"];
-const shortFormatter = new Intl.DateTimeFormat(locale, {
-  year: "numeric",
-  month: "short",
-  day: "numeric",
-});
-
+const allBlogPosts = await getCollection("blog");
 ---
 
 <Col sp={4}>
-  {posts.sort((p1, p2) => p1.frontmatter.createdAt > p2.frontmatter.createdAt ? -1 : 1).slice(0, 3).map((post) => (
-    <Tile date={shortFormatter.format(new Date(post.frontmatter.createdAt))} title={post.frontmatter.title} url={post.url}/>
-  ))}
+  {
+    allBlogPosts
+      .sort((p1, p2) => (p1.data.createdAt > p2.data.createdAt ? -1 : 1))
+      .slice(0, 3)
+      .map((post) => (
+        <Tile
+          date={formatDate(post.data.createdAt)}
+          title={post.data.title}
+          url={`${post.slug}/`}
+        />
+      ))
+  }
 </Col>
-

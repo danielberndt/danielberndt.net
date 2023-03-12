@@ -1,11 +1,7 @@
 ---
 title: "I've tried Framer Motion. Now I'm switching back to react-spring"
 createdAt: 2022-10-20
-layout: "../../comps/BlogPostLayout.astro"
 ---
-
-import MarkdownComponents from "../../comps/MarkdownComponents.tsx";
-export const components = MarkdownComponents;
 
 # I've tried Framer Motion. Now I'm switching back to react-spring
 
@@ -28,16 +24,9 @@ For the longest time I've been using [react-spring](https://react-spring.dev/) f
 
   const Overlay = ({isVisible}) => {
     const opacity = useMotionValue(0);
-    const pointerEvents = useTransform(opacity, (latest) =>
-      latest < 0.5 ? "none" : "auto"
-    );
+    const pointerEvents = useTransform(opacity, (latest) => (latest < 0.5 ? "none" : "auto"));
 
-    return (
-      <motion.div
-        animate={{opacity: isVisible ? 1 : 0}}
-        style={{opacity, pointerEvents}}
-      />
-    );
+    return <motion.div animate={{opacity: isVisible ? 1 : 0}} style={{opacity, pointerEvents}} />;
   };
   ```
 

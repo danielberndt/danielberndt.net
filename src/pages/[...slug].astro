@@ -1,0 +1,46 @@
+---
+import {CollectionEntry, getCollection} from "astro:content";
+import MarkdownComponents from "../comps/MarkdownComponents";
+import {Box, Col} from "../comps/Box";
+import {BoldLink} from "../comps/HomeComponents";
+import {markdownComponentStyles} from "../comps/MarkdownComponents.css";
+import RootLayout from "../comps/RootLayout.astro";
+import {formatDate} from "../date-utils";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog");
+  return blogEntries.map((entry) => ({
+    params: {slug: entry.slug},
+    props: {entry},
+  }));
+}
+
+const entry: CollectionEntry<"blog"> = Astro.props.entry;
+const {Content} = await entry.render();
+---
+
+<RootLayout title={entry.data.title} sp={7} frontmatter={entry.data}>
+  <header>
+    <BoldLink href="/">danielberndt.net</BoldLink>
+  </header>
+  <main>
+    <Box
+      color="secondary"
+      textTransform="uppercase"
+      size={14}
+      fontStyle="italic"
+    >
+      {formatDate(entry.data.createdAt, {type: "long"})}
+    </Box>
+    <Content components={MarkdownComponents} />
+  </main>
+  <Col as="footer" align="center" sp={4}>
+    <Box as="p" size={14}>
+      If you liked what you have read, you might want to <a
+        href="https://twitter.com/D40B"
+        class={markdownComponentStyles.a}>follow me on Twitter</a
+      > to keep up to date :)
+    </Box>
+    <BoldLink href="/">Home</BoldLink>
+  </Col>
+</RootLayout>
