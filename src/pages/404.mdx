@@ -1,0 +1,17 @@
+---
+layout: "../comps/RootLayout.astro"
+---
+
+import {HelloH2, BoldLink} from "../comps/HomeComponents.tsx";
+import {Col} from "../comps/Box.tsx";
+import MarkdownComponents from "../comps/MarkdownComponents.tsx";
+export const components = MarkdownComponents;
+
+<Col as="section" flex="auto" justify="center" align="center">
+<HelloH2>404</HelloH2>
+
+Ooops... seems like this page does not exist.
+
+[Back to Home](/)
+
+</Col>

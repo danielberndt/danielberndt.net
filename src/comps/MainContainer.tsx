@@ -16,7 +16,16 @@ const MainContainer = ({children, sp = 8, editFilePath}: Props) => {
       width="50rem"
       overflow="hidden"
     >
-      <Col prettyScrollBar overflow="auto" maxWidth="100%" px={7} py={6} sm_px={3} sp={sp}>
+      <Col
+        prettyScrollBar
+        overflow="auto"
+        maxWidth="100%"
+        px={7}
+        py={6}
+        sm_px={3}
+        sp={sp}
+        flex="auto"
+      >
         {children}
         {editFilePath && (
           <Row
@@ -27,6 +36,7 @@ const MainContainer = ({children, sp = 8, editFilePath}: Props) => {
             color="secondary"
             hoverColor="link"
             justify="end"
+            mt="auto"
           >
             <a
               href={`https://github.com/danielberndt/danielberndt.net/blob/main/src/${editFilePath}`}
