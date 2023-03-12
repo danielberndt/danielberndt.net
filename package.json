@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start": "IS_DEV=true astro dev",
-    "build": "astro build",
+    "build": "astro build && rm dist/chunks/**/*.wasm",
     "preview": "astro preview",
     "deploy": "npm run build && DOTENV_FILE=.env-deploy.prod ./deploy.sh"
   },
@@ -23,6 +23,7 @@
     "@vanilla-extract/vite-plugin": "^3.8.0",
     "eslint": "^8.36.0",
     "eslint-config-react-app": "^7.0.1",
-    "prettier": "^2.8.4"
+    "prettier": "^2.8.4",
+    "sharp": "^0.31.3"
   }
 }

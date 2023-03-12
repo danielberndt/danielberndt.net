@@ -62,7 +62,7 @@ export const lightTheme = createDSTheme({
     },
 
     border: {
-      default: colors.gray400,
+      default: colors.gray200,
     },
 
     shadowAsRgb: {

@@ -43,7 +43,7 @@ const MainContainer = ({children, sp = 8, editFilePath}: Props) => {
             >
               <span>Suggest edit</span>
               <Box styleChild height="auto" width="1em" size={14}>
-                <img src={githubLogo} alt="GitHub" />
+                <img src={githubLogo.src} alt="GitHub" />
               </Box>
             </a>
           </Row>
