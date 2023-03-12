@@ -4,7 +4,7 @@ import "../styles/global-styles.css";
 import MainContainer from "./MainContainer";
 const {title, sp, file} = Astro.props;
 
-const srcDir = resolve(import.meta.url.replace("file://", ""), "../..");
+const srcDir = resolve(import.meta.url.replace("file://", ""), "../../../..");
 
 const analyticsScript = `<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "64be510055c64d50837975a45dcc8538"}'></script>`;
 ---

@@ -38,9 +38,7 @@ const MainContainer = ({children, sp = 8, editFilePath}: Props) => {
             justify="end"
             mt="auto"
           >
-            <a
-              href={`https://github.com/danielberndt/danielberndt.net/blob/main/src/${editFilePath}`}
-            >
+            <a href={`https://github.com/danielberndt/danielberndt.net/blob/main/${editFilePath}`}>
               <span>Suggest edit</span>
               <Box styleChild height="auto" width="1em" size={14}>
                 <img src={githubLogo.src} alt="GitHub" />
