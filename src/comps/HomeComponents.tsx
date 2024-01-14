@@ -11,6 +11,8 @@ import helldefenceImg from "../assets/project-helldefence.jpg";
 import jurioImg from "../assets/project-jurio.png";
 import patienceImg from "../assets/project-patience.png";
 import piqImg from "../assets/project-piq.jpg";
+import reactStickyBoxImg from "../assets/project-react-sticky-box.png";
+import wortleImg from "../assets/project-wortle.png";
 
 const images = {
   codecks: codecksImg,
@@ -18,6 +20,8 @@ const images = {
   jurio: jurioImg,
   patience: patienceImg,
   piq: piqImg,
+  reactStickyBox: reactStickyBoxImg,
+  wortle: wortleImg,
 };
 type GetImageResult = {src: string; attributes: any};
 type ImgVariants = {
